@@ -1,0 +1,35 @@
+library(rJava)
+library(DBI)
+library(RJDBC)
+library(XML)
+library(memoise)
+library(KoNLP)
+library(wordcloud)
+library(dplyr)
+library(ggplot2)
+library(ggmap)
+library(rvest)
+library(RColorBrewer)
+library(data.table)
+library(reshape)
+library(stringr)
+
+getwd()
+KoNLP::useSejongDic()
+txt <- readLines('newsreport.txt')
+txt <- str_replace_all(txt,"\\w","")
+nouns <- KoNLP::extractNoun(txt)
+wordcount <- table(unlist(nouns))
+df_word <- as.data.frame(wordcount,stringsAsFactors = F) #중복된 글자도 그대로
+df_word <- rename(df_word,word=Var1,freq=Freq)
+ 
+
+place <- sapply(txt,extractNoun,USE.NAMES = F)
+place
+temp <- unlist(place)
+temp
+place <- Filter(function(x)(nchar(x)>=3),txt)
+place <- gsub("이상","",place)
+write(unlist(place))
+test <- brewer.pal(9,"Set1")
+wordcloud(names(table(place)),freq=table(place),scale=c(5,1),rot.per=0.25,min.freq=1,random.order=F,random.color=T,colors=test)

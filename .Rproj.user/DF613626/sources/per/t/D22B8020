@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1532738932934.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2502886363",
+    "id" : "D22B8020",
+    "lastKnownWriteTime" : 1532769795,
+    "last_content_update" : 1532769795880,
+    "path" : "C:/R/180728/score_Class.R",
+    "project_path" : "score_Class.R",
+    "properties" : {
+        "cursorPosition" : "132,20",
+        "scrollLine" : "98",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
